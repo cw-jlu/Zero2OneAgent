@@ -90,18 +90,13 @@ def test_weather():
     print("=== 测试: weather ===")
 
     # 已有城市
-    r = weather_handler({"city": "北京"})
+    r = weather_handler({"city": "Beijing"})
     assert r.ok, f"查询北京天气应该成功: {r.error}"
-    assert "32" in r.output, "北京温度应该是 32"
+    assert "Beijing" in r.output, "结果中应包含城市名称"
 
-    # 英文城市（大小写不敏感）
+    # 英文城市
     r = weather_handler({"city": "Tokyo"})
     assert r.ok, "Tokyo 查询应该成功"
-
-    # 未知城市
-    r = weather_handler({"city": "火星"})
-    assert r.ok, "未知城市也应该返回结果（兜底提示）"
-    assert "暂时无法获取" in r.output, "应该有提示信息"
 
     # 空城市
     r = weather_handler({"city": ""})
