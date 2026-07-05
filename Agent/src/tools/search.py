@@ -11,7 +11,7 @@ from tool_registry import ToolSpec, ToolResult
 
 SPEC = ToolSpec(
     name="search",
-    description="搜索互联网信息。输入查询关键词，返回网页摘要和内容。无需 API Key，自动处理代理环境。",
+    description="搜索互联网信息。输入查询关键词，返回网页摘要和内容。",
     parameters={
         "type": "object",
         "properties": {
